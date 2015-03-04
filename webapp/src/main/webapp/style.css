@@ -1,0 +1,19 @@
+html, body { height: 100%; }
+.navbar { background-image: none; }
+#wrap { min-height: 100%; height: auto !important; height: 100%; margin: 0 auto -30px; padding: 0 0 30px; }
+#wrap > .container { padding: 60px 0 0 }
+#footer { height: 30px; color: #7f8c8d; }
+#footer .container p { padding-top: 4px; font-size: 14px }
+.navbar-default { border: none; background-color: #2980B9; color: white; font-weight: bold }
+.navbar-default .navbar-nav>li>a {color: white}
+.navbar-default .navbar-nav>li>a:hover,  .navbar-default .navbar-nav>li>a:focus {color: #ddd}
+.navbar-default .navbar-brand {color: white}
+.navbar-default .navbar-right {color: white}
+.navbar-default .navbar-right a {color: white}
+.navbar-form { border: none }
+.spacer { height: 10px }
+.img-responsive { display: block; max-height: 100%; max-width: 100%; vertical-align:middle }
+.navbar-default .navbar-toggle .icon-bar {background-color: #ddd}
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {background-color: #3498db}
+.navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {color: #ddd }
+.logostyle { border: 1px solid #ddd; border-radius: 6px; background-color: white; color: #2980B9; padding:2px }

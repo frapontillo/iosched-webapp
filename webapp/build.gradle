@@ -1,0 +1,18 @@
+apply plugin: 'war'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    providedCompile "javax.servlet:javax.servlet-api:3.0.+"
+
+    compile 'com.sun.mail:smtp:1.4.4',
+            'com.sun.mail:mailapi:1.4.4',
+            'commons-codec:commons-codec:1.8',
+            'org.apache.geronimo.bundles:jstl:1.2_1',
+            'org.hibernate:hibernate-entitymanager:4.3.6.Final',
+            'org.postgresql:postgresql:9.3-1102-jdbc41',
+            'opensymphony:sitemesh:2.4.2',
+            'org.apache.jclouds.labs:rackspace-cloudfiles-uk:1.8.0';
+}

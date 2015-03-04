@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<decorators defaultdir="/WEB-INF/decorators">
+    <decorator name="loggedin" page="loggedin.jsp">
+        <pattern>/secure/*</pattern>
+    </decorator>
+    <decorator name="nobranding" page="nobranding.jsp">
+        <pattern>/schedule</pattern>
+    </decorator>
+    <decorator name="none">
+        <pattern>/index.jsp</pattern>
+        <pattern>/</pattern>
+    </decorator>
+    <decorator name="default" page="default.jsp">
+        <pattern>/*</pattern>
+    </decorator>
+</decorators>

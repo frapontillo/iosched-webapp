@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://java.sun.com/xml/ns/javaee"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+         id="conferenceengineer" version="3.0">
+    <context-param>
+        <param-name>data_root</param-name>
+        <param-value>/home/confeng/www/</param-value>
+    </context-param>
+    <filter>
+        <filter-name>AuthenticationFilter</filter-name>
+        <filter-class>com.conferenceengineer.server.AuthenticationFilter</filter-class>
+    </filter>
+
+    <filter>
+        <filter-name>EntityWrapperManagerFilter</filter-name>
+        <filter-class>com.conferenceengineer.server.EntityWrapperManagerFilter</filter-class>
+    </filter>
+
+    <filter>
+        <filter-name>RequestCharsetFilter</filter-name>
+        <filter-class>com.conferenceengineer.server.RequestCharsetFilter</filter-class>
+    </filter>
+
+    <filter>
+        <filter-name>Sitemesh</filter-name>
+        <filter-class>com.opensymphony.sitemesh.webapp.SiteMeshFilter</filter-class>
+    </filter>
+
+    <filter>
+        <filter-name>ErrorCatchingFilter</filter-name>
+        <filter-class>com.conferenceengineer.server.servletfilters.ErrorReporter</filter-class>
+        <init-param>
+            <param-name>recipient</param-name>
+            <param-value>support@conferenceengineer.com</param-value>
+        </init-param>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>ErrorCatchingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <filter-mapping>
+        <filter-name>RequestCharsetFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <filter-mapping>
+        <filter-name>EntityWrapperManagerFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <filter-mapping>
+        <filter-name>AuthenticationFilter</filter-name>
+        <url-pattern>/secure/*</url-pattern>
+    </filter-mapping>
+
+    <filter-mapping>
+        <filter-name>Sitemesh</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <servlet>
+        <servlet-name>Login</servlet-name>
+        <servlet-class>com.conferenceengineer.server.Login</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>Logout</servlet-name>
+        <servlet-class>com.conferenceengineer.server.Logout</servlet-class>
+    </servlet>
+
+    <servlet>
+      <servlet-name>PasswordReset</servlet-name>
+      <servlet-class>com.conferenceengineer.server.PasswordResetServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>Register</servlet-name>
+        <servlet-class>com.conferenceengineer.server.RegisterServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+      <servlet-name>Forgotten</servlet-name>
+      <servlet-class>com.conferenceengineer.server.ForgottenServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>BarcampDashboard</servlet-name>
+        <servlet-class>com.conferenceengineer.server.barcamp.Dashboard</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>BarcampTalks</servlet-name>
+        <servlet-class>com.conferenceengineer.server.barcamp.TalksServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>BarcampVoteServlet</servlet-name>
+        <servlet-class>com.conferenceengineer.server.barcamp.VoteServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>BarcampServlet</servlet-name>
+        <servlet-class>com.conferenceengineer.server.servlets.secure.BarcampServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+      <servlet-name>BreakSlotServlet</servlet-name>
+      <servlet-class>com.conferenceengineer.server.servlets.secure.BreakSlotServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>ConferenceServlet</servlet-name>
+        <servlet-class>com.conferenceengineer.server.servlets.secure.ConferenceServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>Admin</servlet-name>
+        <servlet-class>com.conferenceengineer.server.servlets.secure.Admin</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>Barcamp</servlet-name>
+        <servlet-class>com.conferenceengineer.server.servlets.secure.Barcamp</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>Feedback</servlet-name>
+        <servlet-class>com.conferenceengineer.server.servlets.secure.Feedback</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>Rooms</servlet-name>
+        <servlet-class>com.conferenceengineer.server.servlets.secure.Rooms</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>Sessions</servlet-name>
+        <servlet-class>com.conferenceengineer.server.servlets.secure.Schedule</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>Speakers</servlet-name>
+        <servlet-class>com.conferenceengineer.server.servlets.secure.Speakers</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>Tracks</servlet-name>
+        <servlet-class>com.conferenceengineer.server.servlets.secure.DashboardTracks</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>Invite</servlet-name>
+        <servlet-class>com.conferenceengineer.server.servlets.secure.InviteServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>IO14BootstrapFile</servlet-name>
+        <servlet-class>com.conferenceengineer.server.servlets.secure.IO14BootstrapFileServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>PublishServlet</servlet-name>
+        <servlet-class>com.conferenceengineer.server.servlets.secure.PublishServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>SpeakersServlet</servlet-name>
+        <servlet-class>com.conferenceengineer.server.servlets.secure.SpeakersServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>SearchSuggestionsServlet</servlet-name>
+        <servlet-class>com.conferenceengineer.server.servlets.secure.SearchSuggestionsServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>SetConferenceHashtagServlet</servlet-name>
+        <servlet-class>com.conferenceengineer.server.servlets.secure.SetConferenceHashtagServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>SurveyEndpoint</servlet-name>
+        <servlet-class>com.conferenceengineer.server.servlets.survey.SurveyEndpoint</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>TalkLocationsServlet</servlet-name>
+        <servlet-class>com.conferenceengineer.server.servlets.secure.TalkLocationsServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>TalksServlet</servlet-name>
+        <servlet-class>com.conferenceengineer.server.servlets.secure.TalksServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>TalkSlotServlet</servlet-name>
+        <servlet-class>com.conferenceengineer.server.servlets.secure.TalkSlotServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>TimezoneServlet</servlet-name>
+        <servlet-class>com.conferenceengineer.server.servlets.secure.TimezoneServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>TracksServlet</servlet-name>
+        <servlet-class>com.conferenceengineer.server.servlets.secure.TracksServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>TrackSessionsServlet</servlet-name>
+        <servlet-class>com.conferenceengineer.server.servlets.secure.TrackSessionsServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>ConferenceDayServlet</servlet-name>
+        <servlet-class>com.conferenceengineer.server.servlets.secure.ConferenceDayServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>UserServlet</servlet-name>
+        <servlet-class>com.conferenceengineer.server.servlets.secure.UserServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>PublicSchedule</servlet-name>
+        <servlet-class>com.conferenceengineer.server.servlets.webschedule.Schedule</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Login</servlet-name>
+        <url-pattern>/Login</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>Logout</servlet-name>
+        <url-pattern>/Logout</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+      <servlet-name>Forgotten</servlet-name>
+      <url-pattern>/Forgotten</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+      <servlet-name>PasswordReset</servlet-name>
+      <url-pattern>/PasswordReset</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>Register</servlet-name>
+        <url-pattern>/Register</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>SurveyEndpoint</servlet-name>
+        <url-pattern>/submitSurvey</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>BarcampDashboard</servlet-name>
+        <url-pattern>/barcamp/view/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>BarcampVoteServlet</servlet-name>
+        <url-pattern>/barcamp/vote/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>BarcampTalks</servlet-name>
+        <url-pattern>/barcamp/talks/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>BarcampServlet</servlet-name>
+        <url-pattern>/secure/barcamp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+      <servlet-name>BreakSlotServlet</servlet-name>
+      <url-pattern>/secure/breakSlots</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>ConferenceServlet</servlet-name>
+        <url-pattern>/secure/conference</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>Admin</servlet-name>
+        <url-pattern>/secure/Admin</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>Barcamp</servlet-name>
+        <url-pattern>/secure/Barcamp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>Feedback</servlet-name>
+        <url-pattern>/secure/Feedback</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>Rooms</servlet-name>
+        <url-pattern>/secure/Rooms</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>Sessions</servlet-name>
+        <url-pattern>/secure/Schedule</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>Speakers</servlet-name>
+        <url-pattern>/secure/Speakers</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>Tracks</servlet-name>
+        <url-pattern>/secure/Tracks</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>Invite</servlet-name>
+        <url-pattern>/secure/invite</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>IO14BootstrapFile</servlet-name>
+        <url-pattern>/secure/io14BootstrapFile</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>PublishServlet</servlet-name>
+        <url-pattern>/secure/publish</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>SearchSuggestionsServlet</servlet-name>
+        <url-pattern>/secure/searchSuggestions</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>SpeakersServlet</servlet-name>
+        <url-pattern>/secure/speakers</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>SetConferenceHashtagServlet</servlet-name>
+        <url-pattern>/secure/setConferenceHashtag</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>TalksServlet</servlet-name>
+        <url-pattern>/secure/talks</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>TalkLocationsServlet</servlet-name>
+        <url-pattern>/secure/talkLocations</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>TimezoneServlet</servlet-name>
+        <url-pattern>/secure/timezone</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>TrackSessionsServlet</servlet-name>
+        <url-pattern>/secure/trackSessions</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>TalkSlotServlet</servlet-name>
+        <url-pattern>/secure/talkSlots</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>TracksServlet</servlet-name>
+        <url-pattern>/secure/tracks</url-pattern>
+        <url-pattern>/secure/tracks.json</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>ConferenceDayServlet</servlet-name>
+        <url-pattern>/secure/conferenceDays</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>UserServlet</servlet-name>
+        <url-pattern>/secure/users</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>PublicSchedule</servlet-name>
+        <url-pattern>/secure/scheduleInAPage</url-pattern>
+    </servlet-mapping>
+
+</web-app>
