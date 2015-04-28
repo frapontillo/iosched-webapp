@@ -1,17 +1,16 @@
 # iosched-webapp 
 // TODO add labels when on CI
 
-Conference engineer ....
-
+iosched-webapp a.k.a Conference engineer is a server backend for conference schedules.
 
 ## Description
 
-Conference engineer does ...
+Conference engineer maintains information about conference days, speakers, slots, tracks and sessions. This data is provided as json feeds to be consumed by client apps like https://github.com/kevinmcdonagh/iosched
 
 
 ## Simple usage
 
-Explain how or why you would run this app
+This server app is installed on a Google Cloud Engine instance to be used by the community. Conference organizer can register for free to use this service.
 
 
 ## Links
